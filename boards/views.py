@@ -59,7 +59,6 @@ def updateselectedUsers(request):
         return Response({"status":"Fail","message":f"Error:{e}"})
 
 
-
 @api_view(['POST'])
 def updateAge(request):
     try:
