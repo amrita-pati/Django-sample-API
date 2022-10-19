@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import  User
+from .models import  Persons, User
 # Create your views here.
 def home(request):
     # return HttpResponse('Hello, World!')
@@ -146,6 +146,24 @@ def deleteUsers(request):
         return Response({"status":"Success","message":"Successfully Deleted"})
     except Exception as e:
         return Response({"status":"Fail","message":f"Error : {e}"})
+
+@api_view(['POST'])
+def addPersons(request):
+    try:
+        person_name = request.data.get('person_name')
+        person_age = request.data.get('person_age')
+        person_contactno = request.data.get('person_contactno')
+        person_status = request.data.get('person_status')
+        joining_date = request.data.get('joining_date')
+
+        
+        newPerson = Persons(person_name=person_name,person_age=person_age,person_contactno=person_contactno,person_status=person_status,joining_date=joining_date)
+        newPerson.save()
+        return Response({"status":"Success","message":"Person added Successfully"})
+    except Exception as e:
+        return Response({"status":"Fail","message":f"Error:{e}"})
+
+
 
 
 # LOGIN API----------------------------------
