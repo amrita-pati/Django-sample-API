@@ -1,11 +1,13 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import  User
 # Create your views here.
 def home(request):
-    return HttpResponse('Hello, World!')
+    # return HttpResponse('Hello, World!')
+    return render(request,'index.html')
 
 @api_view(['POST'])
 def addUser(request):
