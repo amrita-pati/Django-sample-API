@@ -34,3 +34,16 @@ class Empolyee(models.Model):
     class Meta:
     	db_table='employee'
  
+class Persons(models.Model):
+    person_id = models.AutoField(primary_key=True)
+    person_name = models.CharField(max_length=30,blank=True)
+    person_age = models.IntegerField(blank=True)
+    person_contactno = models.CharField(max_length=12,blank=True)
+    person_status = models.BooleanField()
+    joining_date = models.DateField()
+
+    
+
+    class Meta:
+    	db_table='persons'
+ 

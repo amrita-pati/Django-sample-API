@@ -35,6 +35,9 @@ urlpatterns = [
     path('login', views.login),
 
 
+    path('Persons', views.addPersons),
+
+
 
 
 
