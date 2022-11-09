@@ -46,4 +46,17 @@ class Persons(models.Model):
 
     class Meta:
     	db_table='persons'
+
+
+class Shirt(models.Model):
+    shirt_no = models.AutoField(primary_key=True)
+    shirt_brand = models.CharField(max_length=30,blank=True)
+    size = models.CharField(max_length=30,blank=True)
+    button_color = models.CharField(max_length=30,blank=True)
+    gender = models.CharField(max_length=30,blank=True)
+
+    
+
+    class Meta:
+    	db_table='shirt'
  

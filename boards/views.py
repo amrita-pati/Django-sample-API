@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import  Persons, User
+from .models import  Persons, Shirt, User
 # Create your views here.
 def home(request):
     # return HttpResponse('Hello, World!')
@@ -160,6 +160,22 @@ def addPersons(request):
         newPerson = Persons(person_name=person_name,person_age=person_age,person_contactno=person_contactno,person_status=person_status,joining_date=joining_date)
         newPerson.save()
         return Response({"status":"Success","message":"Person added Successfully"})
+    except Exception as e:
+        return Response({"status":"Fail","message":f"Error:{e}"})
+
+
+@api_view(['POST'])
+def additems(request):
+    try:
+        shirt_brand = request.data.get('shirt_brand')
+        size = request.data.get('size')
+        button_color = request.data.get('button_color')
+        gender = request.data.get('gender')
+
+        
+        newitems = Shirt(shirt_brand=shirt_brand,size=size,button_color=button_color,gender=gender)
+        newitems.save()
+        return Response({"status":"Success","message":"item added Successfully"})
     except Exception as e:
         return Response({"status":"Fail","message":f"Error:{e}"})
 
