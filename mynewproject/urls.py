@@ -27,6 +27,8 @@ urlpatterns = [
     path('updateselectedUser', views.updateselectedUsers),
     path('updateAge', views.updateAge),
     path('updatePassward', views.updatePassward),
+    path('additems', views.additems),
+
 
 
     path('getAllUsers', views.getAllUsers),
